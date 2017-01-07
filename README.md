@@ -9,7 +9,8 @@ Babel and webpack are preconfigured, the entry point of babel is /Client/app.js 
 ```
 git clone https://github.com/josef32/small-server.git
 
-npm install nodemon -g
+sudo npm install nodemon -g
+cd small-server
 npm install
 
 nodemon

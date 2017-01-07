@@ -23,6 +23,7 @@ app.get('/api/:table', (req, res) => {
 app.post('/api/:table', (req, res) => {
     let db = getDatabase(req.params.table);
     let item = req.body;
+    console.log(item);
     db.insert(item, (err, docs) => {
         if (err){
             res.status(500).json({ error: err });
@@ -64,10 +65,14 @@ app.listen(3000, () => {
     console.log("small-server now listening on port 3000.");
 });
 
+let dbs = {};
+
 function getDatabase(table) {
-    let db = new Datastore({
-        filename: "./databases/" + table + ".dbs",
-        autoload: true
-    });
-    return db;
+    if (!dbs[table]){
+        dbs[table] = new Datastore({
+            filename: "./databases/" + table + ".dbs",
+            autoload: true
+        });
+    }
+    return dbs[table];
 }
