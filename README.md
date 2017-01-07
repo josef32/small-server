@@ -16,6 +16,7 @@ nodemon
 ```
 
 **API and C(reate)R(ead)U(pdate)D(elete) operations**
+
 Inserting items (Has body)
 ```
 POST to /api/{tablename}
